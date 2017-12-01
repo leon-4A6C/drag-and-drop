@@ -5,14 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link rel="stylesheet" href="/dist/css/drag-and-drop.css">
+  <link rel="stylesheet" href="/css/drag-and-drop.css">
 
   <title>drag and drop</title>
 </head>
 <body>
 
+  <form action="/post/somewhere" method="post" enctype="multipart/form-data">
+    <div class="drag-drop-field">
+      <h3><b>drag and drop your files here! or click me</b></h3>
+      <input type="file" name="files[]" class="drag-drop-file" multiple="multiple">
+    </div>
+  </form>
 
 
-  <script src="/dist/js/drag-and-drop.js"></script>
+  <script src="/js/drag-and-drop.js"></script>
 </body>
 </html>
