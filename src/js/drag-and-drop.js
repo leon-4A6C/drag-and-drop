@@ -12,13 +12,11 @@ document.querySelectorAll(".drag-drop-file").forEach(x => {
 function dragDropHandler(e) {
   e.preventDefault()
   e.stopPropagation()
-  console.log(e)
   const files = e.target.files || e.dataTransfer.files;
-  console.log(files)
-  Array.from(files).forEach(x => {
+  Array.from(files).forEach((x, i) => {
     const reader = new FileReader()
     reader.readAsDataURL(x)
-    reader.addEventListener("load", e => console.log(e.loaded / e.total))
-    reader.addEventListener("progress", e => console.log(e.loaded / e.total))
+    reader.addEventListener("load", e => console.log(i, e.loaded / e.total))
+    reader.addEventListener("progress", e => console.log(i, e.loaded / e.total))
   })
 }
