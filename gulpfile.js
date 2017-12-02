@@ -5,6 +5,7 @@ const cleanCSS = require('gulp-clean-css');
 const sass = require('gulp-sass');
 const htmlmin = require('gulp-htmlmin');
 const browserSync = require('browser-sync').create();
+const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('browser-sync', function() {
   browserSync.init({
@@ -27,6 +28,10 @@ gulp.task('sass', () => {
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('dist/css'))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(browserSync.stream())
 })
 
